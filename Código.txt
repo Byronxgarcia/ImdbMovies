@@ -1,0 +1,30 @@
+#Importar las bibliotecas necesarias:
+import pandas as pd
+import matplotlib.pyplot as plt
+
+#Cargar el archivo CSV en un DataFrame de pandas:
+df = pd.read_csv('himdb_movies.csv')
+
+Explorar los datos del DataFrame
+#Mostrar las primeras filas del Data Frame.
+print(df.head())
+
+#Obtener información general del DataFrame:
+print(df.info())
+
+#Calcular estadísticas descriptivas de las columnas numéricas:
+print(df.describe())
+
+#Gráfico de barras: Número de películas por género:
+df['genre'].value_counts()[:20].plot(kind='bar')
+plt.title('Número de películas por género')
+plt.xlabel('Género')
+plt.ylabel('Cantidad')
+plt.show()
+
+#Gráfico de dispersión: Relación entre el País y la calificación:
+plt.scatter(df['country'][:100], df['score'][:100])
+plt.title('Relación entre el país y la calificación')
+plt.xlabel('País')
+plt.ylabel('Calificación')
+plt.show()
